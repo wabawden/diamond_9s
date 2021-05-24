@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <Tiles />
     </div>
-  );
+  )
 }
 
 export default App;
