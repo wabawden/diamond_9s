@@ -11,7 +11,7 @@ function Notes(props) {
             if (tileNote.id === parseInt(props.selectedTile)) {
                 const noteClass = `tile-note note-${tileNote.id}`
                 return (
-                    <div className={noteClass}>{tileNote.note}</div>
+                    <div className={noteClass}>{tileNote.text}</div>
         
                 );
                 }
@@ -29,7 +29,7 @@ function Notes(props) {
 
     if (props.selectedTile) {
         return (
-            <div>
+            <div className="notes-test">
                 <div className="notes-title">Notes for "{props.tiles.find(tile => tile.id === parseInt(props.selectedTile)).text}"</div>
                 {renderTileNotes()}
             </div>

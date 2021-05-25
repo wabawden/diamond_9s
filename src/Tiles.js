@@ -67,7 +67,7 @@ function Tiles(props) {
                       <div className="add-tile-note"
                             onClick={()=> setNoteAttributes({type: "tile", id: tile.id})}>Add note to tile</div>
                       <div className="add-position-note"
-                            onClick={()=> setNoteAttributes({type: "position", position: tile.position})}>Add note to position</div>
+                            onClick={()=> setNoteAttributes({type: "position", id: tile.position})}>Add note to position</div>
                     </div>
                   </div>
                   {tile.text}

@@ -7,11 +7,10 @@ export const fetchTileActivity = () => {
     };
 };
 
-export const addTileNote = (id, note) => {
-    console.log(note)
+export const addTileNote = (id, type, value) => {
     return {
         type: ADD_TILE_NOTE,
-        payload: {id, note}
+        payload: {id, type, value}
     }
 }
 
