@@ -1,4 +1,4 @@
-export const initialState = [
+export const initialTiles = [
     {id: 1,
         text: "health",
         position: 1},
@@ -27,3 +27,17 @@ export const initialState = [
         text: "the environment",
         position: 9}
 ]
+
+export const initialQuestion = {
+    user: "Mr. Smith",
+    question: "What is the most important issue facing the country?",
+    highLabel: "Most important",
+    lowLabel: "Least Important"
+}
+
+export const tileActivity = {
+    tiles: initialTiles,
+    question: initialQuestion,
+    tileNotes: {},
+    positionNotes: {}
+}
