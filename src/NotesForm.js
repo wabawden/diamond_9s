@@ -20,7 +20,7 @@ function NotesForm(props) {
       <Form
         onSubmit={values => {props.addTileNote(props.noteAttributes.id, props.noteAttributes.type, values)}}
         initialValues={{}}
-        render={({ handleSubmit, form, submitting, pristine, values }) => (
+        render={({ handleSubmit, form, reset, submitting, pristine, values }) => (
           <form onSubmit={handleSubmit} className="ui form">
             <div className="field">
               <label>{renderLabel()}</label>

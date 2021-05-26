@@ -193,6 +193,9 @@
   margin-top: 18px;
 }
 
+.position-note {
+  border: dashed black 1px
+}
 
 @keyframes slideInFromRight {
   0% {
@@ -207,4 +210,10 @@
   /* This section calls the slideInFromLeft animation we defined above */
   animation: 300ms ease-out 0s 1 slideInFromRight;
 
+}
+
+.notes-title {
+  font-family: 'Prata', serif;
+  font-size: 24px;
+  line-height: 1.75;
 }

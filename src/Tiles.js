@@ -10,7 +10,9 @@ function Tiles(props) {
 
     const [tileActivity, setTileActivity] = useState(activity);
     const [selectedTile, setSelectedTile] = useState(null);
-    const [noteAttributes, setNoteAttributes] = useState(null)
+    const [noteAttributes, setNoteAttributes] = useState(null);
+    const [notesView, setNotesView] = useState(null)
+
     useEffect(() => {
       props.fetchTileActivity();
     }, []);
@@ -19,7 +21,6 @@ function Tiles(props) {
       console.log(selectedTile);
         // check that there is already a selected tile and it's not the same one being selected
         if (selectedTile && selectedTile !== event.target.value) {
-            console.log("no selected tile");
             // establish first and second selected tiles
             let firstSelected = tileActivity.tiles.find(tile => tile.id === parseInt(selectedTile))
             let secondSelected = tileActivity.tiles.find(tile => tile.id === parseInt(event.target.id))
@@ -49,9 +50,16 @@ function Tiles(props) {
       event.target.nextElementSibling.classList.toggle("menu-hidden")
     }
 
+    function cleanUp(event) {
+      setNoteAttributes(null);
+      setNotesView(null);
+    }
+
+    //TODO: hide eye icon when there are no notes to display
+
   return (
     <>
-      <div className="workspace" onClick={()=> setNoteAttributes(null)}>
+      <div className="workspace" onClick={cleanUp}>
         <div>{tileActivity.question.highLabel}</div>
         <div className="tiles">
             {tileActivity.tiles.map(tile => {
@@ -60,7 +68,9 @@ function Tiles(props) {
               const dropdownId = `dropdown-${tile.id}`;
               return (
                 <div className={tile_class} key={tile.id} id={tile_id} onClick={handleClick}>
-                  <i className="icon eye"></i>
+                  <div onClick={(e)=>e.stopPropagation()}>
+                    <i className="icon eye" onClick={()=> setNotesView({position: tile.position, id: tile.id})}></i>
+                  </div>
                   <div className="notes-icon" onClick={(e) => e.stopPropagation()}>  
                     <i className="icon edit" onClick={handleDropDown}></i>
                     <div id={dropdownId} className="menu-hidden" onClick={(e)=>e.stopPropagation()}>
@@ -77,7 +87,7 @@ function Tiles(props) {
         </div>
         <div>{tileActivity.question.lowLabel}</div>
       </div>
-      <Notes noteAttributes={noteAttributes} selectedTile={selectedTile}/>
+      <Notes noteAttributes={noteAttributes} selectedTile={selectedTile} notesView={notesView}/>
     </>
   )
 }
