@@ -68,17 +68,8 @@ function Tiles(props) {
               const dropdownId = `dropdown-${tile.id}`;
               return (
                 <div className={tile_class} key={tile.id} id={tile_id} onClick={handleClick}>
-                  <div onClick={(e)=>e.stopPropagation()}>
-                    <i className="icon eye" onClick={()=> setNotesView({position: tile.position, id: tile.id})}></i>
-                  </div>
                   <div className="notes-icon" onClick={(e) => e.stopPropagation()}>  
-                    <i className="icon edit" onClick={handleDropDown}></i>
-                    <div id={dropdownId} className="menu-hidden" onClick={(e)=>e.stopPropagation()}>
-                      <div className="add-tile-note"
-                            onClick={()=> setNoteAttributes({type: "tile", id: tile.id})}>Add note to tile</div>
-                      <div className="add-position-note"
-                            onClick={()=> setNoteAttributes({type: "position", id: tile.position})}>Add note to position</div>
-                    </div>
+                    <i className="icon edit" onClick={()=> setNotesView({position: tile.position, id: tile.id})}></i>
                   </div>
                   {tile.text}
                 </div>
