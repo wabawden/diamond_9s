@@ -189,13 +189,26 @@
 }
 
 .tile-note {
-  padding: 18px;
+  padding: 22px;
   margin-top: 9px;
   margin-bottom: 9px;
+  position: relative;
+  border-radius: 3px;
 }
 
 .position-note {
   border: dashed black 1px
+}
+
+.icon.x.icon {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.icon.x.icon:active {
+  color: rgba(0, 0, 0, 0.4);
 }
 
 @keyframes slideInFromRight {

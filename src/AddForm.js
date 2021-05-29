@@ -15,7 +15,6 @@ const AddForm = (props) => {
             }}
             onSubmit={(values, { resetForm } ) => {
                 if (values.content) {
-                    alert("Form is validated! Submitting the form...");
                     props.addTileNote(props.id, props.type, values.content);
                     resetForm();
                 }
